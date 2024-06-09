@@ -40,5 +40,15 @@ namespace GeometricShapes.Core.Shapes
                 * (semiPerimeter - _secondSide)
                 * (semiPerimeter - _thirdSide));
         }
+
+        /// <summary>
+        /// Является ли треугольный прямоугольным
+        /// </summary>
+        public bool IsRight()
+        {
+            return _firstSide == Math.Sqrt(Math.Pow(_secondSide, 2) + Math.Pow(_thirdSide, 2))
+                || _secondSide == Math.Sqrt(Math.Pow(_firstSide, 2) + Math.Pow(_thirdSide, 2))
+                || _thirdSide == Math.Sqrt(Math.Pow(_firstSide, 2) + Math.Pow(_secondSide, 2));
+        }
     }
 }
