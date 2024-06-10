@@ -7,38 +7,47 @@ namespace GeometricShapes.Core.Shapes
     /// </summary>
     public class Triangle : IShape
     {
-        private readonly double _firstSide;
+        /// <summary>
+        /// Первая сторона (A)
+        /// </summary>
+        public readonly double FirstSide;
 
-        private readonly double _secondSide;
+        /// <summary>
+        /// Вторая сторона (B)
+        /// </summary>
+        public readonly double SecondSide;
 
-        private readonly double _thirdSide;
+        /// <summary>
+        /// Третья сторона (C)
+        /// </summary>
+        public readonly double ThirdSide;
 
         /// <summary>
         /// .ctor
         /// </summary>
-        /// <param name="firstSide">Первая сторона</param>
-        /// <param name="secondSide">Вторая сторона</param>
-        /// <param name="thirdSide">Третья сторона</param>
+        /// <param name="firstSide">Первая сторона (A)</param>
+        /// <param name="secondSide">Вторая сторона (B)</param>
+        /// <param name="thirdSide">Третья сторона (C)</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         /// <exception cref="ArgumentException"></exception>
         public Triangle(double firstSide, double secondSide, double thirdSide)
         {
-            TriangleValidator.Validate(firstSide, secondSide, thirdSide);
+            TriangleValidator.ValidateSides(firstSide, secondSide, thirdSide);
 
-            _firstSide = firstSide;
-            _secondSide = secondSide;
-            _thirdSide = thirdSide;
+            FirstSide = firstSide;
+            SecondSide = secondSide;
+            ThirdSide = thirdSide;
         }
 
         /// <inheritdoc />
         public double GetArea()
         {
-            var semiPerimeter = (_firstSide + _secondSide + _thirdSide) / 2;
+            var semiPerimeter = (FirstSide + SecondSide + ThirdSide) / 2;
 
             return Math.Sqrt(semiPerimeter
-                * (semiPerimeter - _firstSide)
-                * (semiPerimeter - _secondSide)
-                * (semiPerimeter - _thirdSide));
+                * (semiPerimeter - FirstSide)
+                * (semiPerimeter - SecondSide)
+                * (semiPerimeter - ThirdSide));
         }
 
         /// <summary>
@@ -46,9 +55,9 @@ namespace GeometricShapes.Core.Shapes
         /// </summary>
         public bool IsRight()
         {
-            return _firstSide == Math.Sqrt(Math.Pow(_secondSide, 2) + Math.Pow(_thirdSide, 2))
-                || _secondSide == Math.Sqrt(Math.Pow(_firstSide, 2) + Math.Pow(_thirdSide, 2))
-                || _thirdSide == Math.Sqrt(Math.Pow(_firstSide, 2) + Math.Pow(_secondSide, 2));
+            return FirstSide == Math.Sqrt(Math.Pow(SecondSide, 2) + Math.Pow(ThirdSide, 2))
+                || SecondSide == Math.Sqrt(Math.Pow(FirstSide, 2) + Math.Pow(ThirdSide, 2))
+                || ThirdSide == Math.Sqrt(Math.Pow(FirstSide, 2) + Math.Pow(SecondSide, 2));
         }
     }
 }

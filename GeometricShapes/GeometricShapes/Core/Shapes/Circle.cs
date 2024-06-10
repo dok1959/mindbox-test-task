@@ -7,7 +7,10 @@ namespace GeometricShapes.Core.Shapes
     /// </summary>
     public class Circle : IShape
     {
-        private readonly double _radius;
+        /// <summary>
+        /// Радиус
+        /// </summary>
+        public readonly double Radius;
 
         /// <summary>
         /// .ctor
@@ -16,12 +19,12 @@ namespace GeometricShapes.Core.Shapes
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public Circle(double radius)
         {
-            CircleValidator.Validate(radius);
+            CircleValidator.ValidateRadius(radius);
 
-            _radius = radius;
+            Radius = radius;
         }
 
         /// <inheritdoc />
-        public double GetArea() => Math.PI * Math.Pow(2, _radius);
+        public double GetArea() => Math.PI * Math.Pow(2, Radius);
     }
 }

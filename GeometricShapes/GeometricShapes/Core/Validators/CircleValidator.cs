@@ -8,9 +8,9 @@
         /// <summary>
         /// Проверить корректность радиуса круга
         /// </summary>
-        /// <param name="radius">Первая сторона</param>
+        /// <param name="radius">Радиус</param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void Validate(double radius)
+        public static void ValidateRadius(double radius)
         {
             if (radius <= 0)
                 throw new ArgumentOutOfRangeException(nameof(radius), CoreValidationErrors.WrongCircleRadiusValue);
