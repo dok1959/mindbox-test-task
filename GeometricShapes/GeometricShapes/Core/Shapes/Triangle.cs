@@ -51,13 +51,13 @@ namespace GeometricShapes.Core.Shapes
         }
 
         /// <summary>
-        /// Является ли треугольный прямоугольным
+        /// Является ли треугольник прямоугольным
         /// </summary>
         public bool IsRight()
         {
-            return FirstSide == Math.Sqrt(Math.Pow(SecondSide, 2) + Math.Pow(ThirdSide, 2))
-                || SecondSide == Math.Sqrt(Math.Pow(FirstSide, 2) + Math.Pow(ThirdSide, 2))
-                || ThirdSide == Math.Sqrt(Math.Pow(FirstSide, 2) + Math.Pow(SecondSide, 2));
+            return Math.Round(FirstSide, 2) == Math.Round(Math.Sqrt(Math.Pow(SecondSide, 2) + Math.Pow(ThirdSide, 2)), 2)
+                || Math.Round(SecondSide, 2) == Math.Round(Math.Sqrt(Math.Pow(FirstSide, 2) + Math.Pow(ThirdSide, 2)), 2)
+                || Math.Round(ThirdSide, 2) == Math.Round(Math.Sqrt(Math.Pow(FirstSide, 2) + Math.Pow(SecondSide, 2)), 2);
         }
     }
 }
