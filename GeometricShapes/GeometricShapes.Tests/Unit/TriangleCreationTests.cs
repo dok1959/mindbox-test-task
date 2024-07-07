@@ -19,8 +19,7 @@ namespace GeometricShapes.Tests.Unit
                 resultMessage = ex.Message;
             }
 
-            Assert.DoesNotContain(CoreValidationErrors.WrongTriangleSideValue, resultMessage);
-            Assert.DoesNotContain(CoreValidationErrors.WrongTriangleSideValue, resultMessage);
+            Assert.Empty(resultMessage);
         }
 
         [Fact]

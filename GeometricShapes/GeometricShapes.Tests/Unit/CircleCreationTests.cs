@@ -19,7 +19,7 @@ namespace GeometricShapes.Tests.Unit
                 resultMessage = ex.Message;
             }
 
-            Assert.DoesNotContain(CoreValidationErrors.WrongCircleRadiusValue, resultMessage);
+            Assert.Empty(resultMessage);
         }
 
         [Fact]
